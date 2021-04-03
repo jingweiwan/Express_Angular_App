@@ -1,0 +1,237 @@
+
+    <div class = "container" id="home">
+        <ngb-carousel *ngIf="backdrop_trend&& !mobile">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper carousel_content">
+              <a  routerLink="/watch/movie/{{obj_list[0]?.id}}">
+              <img class = "img-fluid"[src]="backdrop_trend[0]"  alt="first slide">
+              </a>
+              <div class="caption-box">
+                <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[0]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[0]?.title}}</p>
+                </div>
+              </div>
+            </div>
+            <a role="button"  id="m"class="carousel-control-prev">
+                <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper carousel_content">
+              <a  routerLink="/watch/movie/{{obj_list[1]?.id}}">
+              <img class = "img-fluid"[src]="backdrop_trend[1]" alt="second slide">
+              </a>
+              <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[1]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[1]?.title}}</p>
+                </div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+              <div class="picsum-img-wrapper carousel_content">
+                <a  routerLink="/watch/movie/{{obj_list[2]?.id}}">
+                <img class = "img-fluid"[src]="backdrop_trend[2]" alt="Random third slide">
+                </a>
+                <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[2]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[2]?.title}}</p>
+                </div>
+              </div>
+          </ng-template>
+          <ng-template ngbSlide>
+              <div class="picsum-img-wrapper carousel_content">
+                <a  routerLink="/watch/movie/{{obj_list[3]?.id}}">
+                <img class = "img-fluid"[src]="backdrop_trend[3]" alt="Random third slide">
+                </a>
+                <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[3]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[3]?.title}}</p>
+                </div>
+              </div>
+          </ng-template>
+          <ng-template ngbSlide>
+              <div class="picsum-img-wrapper carousel_content">
+                <a  routerLink="/watch/movie/{{obj_list[4]?.id}}">
+                <img class = "img-fluid"[src]="backdrop_trend[4]" alt="Random third slide">
+                </a>
+                <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[4]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[4]?.title}}</p>
+                </div>
+              </div>
+          </ng-template>
+        </ngb-carousel>
+
+        <ngb-carousel *ngIf="backdrop_trend && mobile" [showNavigationIndicators]="showNavigationIndicators">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper carousel_content">
+              <a  routerLink="/watch/movie/{{obj_list[0]?.id}}">
+              <img class = "img-fluid"[src]="backdrop_trend[0]"  alt="first slide">
+              </a>
+              <div class="caption-box">
+                <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[0]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[0]?.title}}</p>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper carousel_content">
+              <a routerLink="/watch/movie/{{obj_list[1]?.id}}">
+              <img class = "img-fluid"[src]="backdrop_trend[1]" alt="second slide">
+              </a>
+              <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[1]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[1]?.title}}</p>
+                </div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+              <div class="picsum-img-wrapper carousel_content">
+                <a  routerLink="/watch/movie/{{obj_list[2]?.id}}">
+                <img class = "img-fluid"[src]="backdrop_trend[2]" alt="Random third slide">
+                </a>
+                <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[2]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[2]?.title}}</p>
+                </div>
+              </div>
+          </ng-template>
+          <ng-template ngbSlide>
+              <div class="picsum-img-wrapper carousel_content">
+                <a  routerLink="/watch/movie/{{obj_list[3]?.id}}">
+                <img class = "img-fluid"[src]="backdrop_trend[3]" alt="Random third slide">
+                </a>
+                <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[3]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[3]?.title}}</p>
+                </div>
+              </div>
+          </ng-template>
+          <ng-template ngbSlide>
+              <div class="picsum-img-wrapper carousel_content">
+                <a  routerLink="/watch/movie/{{obj_list[4]?.id}}">
+                <img class = "img-fluid"[src]="backdrop_trend[4]" alt="Random third slide">
+                </a>
+                <div *ngIf="!mobile" class="carousel-caption">
+                    <p>{{obj_list[4]?.title}}</p>
+                </div>
+                <div *ngIf="mobile" class="carousel-caption_m">
+                    <p>{{obj_list[4]?.title}}</p>
+                </div>
+              </div>
+          </ng-template>
+        </ngb-carousel>
+    </div>
+    
+    <div *ngIf ="continue_set"class = "container mt-5">
+        <div *ngIf="!mobile" class = "headings">
+            <h2>Continue Watching</h2>
+        </div>
+        <div *ngIf="mobile" class = "headings-mobile">
+            <h2>Continue Watching</h2>
+        </div>
+    </div>
+
+
+    
+
+
+
+
+
+    <app-carousel *ngIf="!mobile && continue_set" [obj_movie_list] = "continue_watch_list_6" ></app-carousel>
+    <app-mobilecarousel *ngIf="mobile &&continue_set" [obj_movie_list] = "continue_watch_list"></app-mobilecarousel>
+
+    <div class = "container mt-5">
+        <div *ngIf="!mobile" class = "headings">
+            <h2>Popular Movies</h2>
+        </div>
+        <div *ngIf="mobile" class = "headings-mobile">
+            <h2>Popular Movies</h2>
+        </div>
+    </div>
+    <app-carousel *ngIf="!mobile" [obj_movie_list] = "obj_movie_list"></app-carousel>
+    <app-mobilecarousel *ngIf="mobile" [obj_movie_list] = "Popular_movie_results.results"></app-mobilecarousel>
+    
+    <div class = "container">
+        <div *ngIf="!mobile" class = "headings">
+            <h2>Top Rated Movies</h2>
+        </div>
+        <div *ngIf="mobile" class = "headings-mobile">
+            <h2>Top Rated Movies</h2>
+        </div>
+    </div>
+    <app-carousel *ngIf = "!mobile" [obj_movie_list] = "obj_toprated_movie_list"></app-carousel>
+    <app-mobilecarousel *ngIf="mobile" [obj_movie_list] = "Top_rated_Movie_results.results"></app-mobilecarousel>
+
+    <div class = "container">
+        <div *ngIf="!mobile" class = "headings">
+            <h2>Trending Movies</h2>
+        </div>
+        <div *ngIf="mobile" class = "headings-mobile">
+            <h2>Trending Movies</h2>
+        </div>
+    </div>
+    <app-carousel *ngIf = "!mobile"[obj_movie_list] = "obj_trend_movie_list"></app-carousel>
+    <app-mobilecarousel *ngIf="mobile" [obj_movie_list] = "Trend_Movie_results.results"></app-mobilecarousel>
+
+    <div class = "container">
+        <div *ngIf="!mobile" class = "headings">
+            <h2>Popular TV Shows</h2>
+        </div>
+        <div *ngIf="mobile" class = "headings-mobile">
+            <h2>Popular TV Shows</h2>
+        </div>
+    </div>
+    <app-carousel *ngIf="!mobile" [obj_movie_list] = "obj_popular_tv_list"></app-carousel>
+    <app-mobilecarousel *ngIf="mobile" [obj_movie_list] = "Popular_TV_results.results"></app-mobilecarousel>
+
+    <div class = "container">
+        <div *ngIf="!mobile" class = "headings">
+            <h2>Top Rated TV Shows</h2>
+        </div>
+        <div *ngIf="mobile" class = "headings-mobile">
+            <h2>Top Rated TV Shows</h2>
+        </div>
+    </div>
+    <app-carousel *ngIf="!mobile" [obj_movie_list] = "obj_toprated_tv_list"></app-carousel>
+    <app-mobilecarousel *ngIf="mobile" [obj_movie_list] = "Top_rated_TV_results.results"></app-mobilecarousel>
+
+    <div class = "container">
+        <div *ngIf="!mobile" class = "headings">
+            <h2>Trending TV Shows</h2>
+        </div>
+        <div *ngIf="mobile" class = "headings-mobile">
+            <h2>Trending TV Shows</h2>
+        </div>
+    </div>
+    <app-carousel *ngIf="!mobile"[obj_movie_list] = "obj_trend_TV_list"></app-carousel>
+    <app-mobilecarousel *ngIf="mobile" [obj_movie_list] = "Trend_TV_results.results"></app-mobilecarousel>
+
+
+    
+
+
+

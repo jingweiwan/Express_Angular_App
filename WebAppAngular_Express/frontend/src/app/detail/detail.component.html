@@ -1,0 +1,200 @@
+
+<div class = "container">
+    <div class = "row">
+        <div class="col-md-8 youtube">
+            <div class="embed-responsive embed-responsive-16by9">
+            <youtube-player videoId="{{Youtube_key}}"></youtube-player>
+            </div>
+        </div>
+        <div class="col-md-4 youtube_side">
+            <h1 class = "bold">{{movie_title}}</h1>
+            <p class = "tag">{{tagline}}</p>
+            <p class = "second_header">{{release_date}}  |  &#9733; {{vote}}  |  <span *ngIf = "runtime_hours">{{runtime_hours}}hrs </span><span *ngIf = "runtime_minutes">{{runtime_minutes}}mins</span> </p>
+            <p class = "Genres_type">Genres : <span class = "genre"*ngFor = "let genre of genres">{{genre.name}} </span> </p>
+            <p class = "Genres_type">Spoken Languages : <span class = "genre" *ngFor="let language of spoken_languages">{{language.english_name}} </span></p>
+            <button *ngIf ="!isAdded()" type="button" class = "btn btn-primary" (click) = "Add_watchlist()">Add to Watchlist</button> 
+            
+            
+            <button *ngIf ="isAdded()" type="button" class = "btn btn-primary" (click) = "remove_watchlist()">Remove from Watchlist</button> 
+            <ngb-alert #selfClosingAlert *ngIf="successMessage" id = "add_alert" type="{{alert_type}}" (closed)="successMessage = ''">{{ successMessage }}
+</ngb-alert>
+            
+        </div>
+    </div>
+    <div class = "row ">
+        <div class = "col-md-12">
+            <p class = "Genres_type" *ngIf="overview" style = "margin-top:20px">Description</p>
+            <p class = "genre">{{overview}}</p>
+        </div>
+        <div class = "col-md-12">
+            <p class = "Genres_type" *ngIf="overview" style = "margin-top:20px">Share</p>
+            
+            <a class = "cursor"><img src="/assets/images/image.png" width="30px"height = "30px"alt="Share on Twitter" (click)="shareTwitter()"></a>
+            <a class = "cursor"> <img src="/assets/images/fbIcon.png" width="30px"height = "30px"alt="Share on Facebook" (click)="shareFB()"></a>
+            
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="movie_cast_results">
+    <div class = "row ">
+        <div class = "headings">
+            <h2>Full Cast and Crew</h2>
+        </div>
+    </div>
+    <div class="row flex-row flex-nowrap overflow-auto" *ngIf ="!mobile">
+        <div class="col-2 card-group" *ngFor="let obj of cast_list">
+
+            <div class = "card actor_card" (click)="open(content,obj.id,obj.name)">
+                
+                    <img *ngIf="obj.profile_path"class = "card-img-top" src="https://image.tmdb.org/t/p/w500/{{obj.profile_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj.profile_path"class = "card-img-top" src="https://bytes.usc.edu/cs571/s21_JSwasm00/hw/HW6/imgs/person-placeholder.png" alt="Random second slide"width="200px" height = "200px">
+
+                    <p class="card-title ">{{obj.name}}</p>
+                    <p class="card-as">AS</p>
+                    <p class="card-text">{{obj.character}}</p> 
+                
+            </div>
+        </div>
+    </div>
+    <div class="row flex-row flex-nowrap overflow-auto card-deck" *ngIf ="mobile">
+        <div class="col-6 card-group" *ngFor="let obj of cast_list">
+
+            <div class = "card actor_card_m" (click)="open(content,obj.id,obj.name)">
+                
+                    <img *ngIf="obj.profile_path"class = "card-img-top" src="https://image.tmdb.org/t/p/w500/{{obj.profile_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj.profile_path"class = "card-img-top" src="https://bytes.usc.edu/cs571/s21_JSwasm00/hw/HW6/imgs/person-placeholder.png" alt="Random second slide"width="200px" height = "200px">
+
+                    <p class="card-title ">{{obj.name}}</p>
+                    <p class="card-as">AS</p>
+                    <p class="card-text">{{obj.character}}</p> 
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal-->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{actor_name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    
+  </div>
+  <div class="modal-body">
+    <div class="container" *ngIf="!mobile">
+        <div class="row">
+            <div class="col-4">
+                <img class="actor_img"src= "{{actor_image}}" alt="actor image">
+            </div>
+            <div class="col-8">
+                <p *ngIf="birthday"class="ptag">Birth: {{birthday}}</p>
+                <p *ngIf="birth_place"class="ptag">Birth Place: {{birth_place}}</p>
+                <p *ngIf="gender"class="ptag">Gender: {{gender}}</p>
+                <p *ngIf = "website" class="ptag">Website: {{website}}</p>
+                <p *ngIf = "known_for" class="ptag">{{known_for}}</p>
+                <p *ngIf="other_name" class="ptag"> {{other_name}}</p>
+                <i *ngIf="imdb"(click)="open_imdb(imdb)"class="fab fa-imdb fa-2x" ngbPopover="Visit IMDB" triggers="mouseenter:mouseleave" style = " color: orange; cursor:pointer;"></i>
+                <i *ngIf="ins"(click)="open_ins(ins)"class="fab fa-instagram fa-2x" ngbPopover="Visit Instagram" triggers="mouseenter:mouseleave" style="cursor:pointer;"></i>
+                <i *ngIf="fb"(click)="open_fb(fb)"class="fab fa-facebook-square fa-2x" ngbPopover="Visit Facebook" triggers="mouseenter:mouseleave" style="cursor:pointer; color:#3b5998;"></i>
+                <i *ngIf="twitter"(click)="open_twitter(twitter)"class="fab fa-twitter fa-2x" ngbPopover="Visit Twitter" triggers="mouseenter:mouseleave" style="cursor:pointer; color: #00aced"></i>
+            
+            </div>
+        </div>
+        <div class = "row" *ngIf="bio">
+            <div class="col-4">
+    
+            <h3 style="margin-top:10px">Biography</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+            <p style="margin:0">{{bio}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" *ngIf="mobile">
+        <div class="row">
+            <div class="col-12">
+                <img class="actor_img"src= "{{actor_image}}" alt="actor image">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="ptag">Birth: {{birthday}}</p>
+                <p class="ptag">Birth Place: {{birth_place}}</p>
+                <p class="ptag">Gender: {{gender}}</p>
+                <p *ngIf = "website" class="ptag">Website: {{website}}</p>
+                <p *ngIf = "known_for" class="ptag">{{known_for}}</p>
+                <p *ngIf="other_name" class="ptag"> {{other_name}}</p>
+                <i *ngIf="imdb"(click)="open_imdb(imdb)"class="fab fa-imdb fa-2x" ngbPopover="Visit IMDB" triggers="mouseenter:mouseleave" style = " color: orange; cursor:pointer;"></i>
+                <i *ngIf="ins"(click)="open_ins(ins)"class="fab fa-instagram fa-2x" ngbPopover="Visit Instagram" triggers="mouseenter:mouseleave" style="cursor:pointer;"></i>
+                <i *ngIf="ins"(click)="open_fb(fb)"class="fab fa-facebook-square fa-2x" ngbPopover="Visit Facebook" triggers="mouseenter:mouseleave" style="cursor:pointer; color:#3b5998;"></i>
+                <i *ngIf="ins"(click)="open_twitter(twitter)"class="fab fa-twitter fa-2x" ngbPopover="Visit Twitter" triggers="mouseenter:mouseleave" style="cursor:pointer; color: #00aced"></i>
+            
+            </div>
+        </div>
+        <div class = "row" *ngIf="bio">
+            <div class="col-12">
+    
+            <h3 style="margin-top:10px">Biography</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+            <p style="margin:0">{{bio}}</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</ng-template>
+<!-- Movie Review Section-->
+<div class="container" *ngIf="movie_review_results">
+    <div class = "row ">
+        <div class = "headings" *ngIf="movie_review_results_list">
+            <h2>Reviews <span>{{movie_review_results_list.length}}</span></h2> 
+        </div>
+    </div>
+    <div class="card mb-3 wid" *ngFor="let obj of movie_review_results_list; let i = index">
+        <div class="row no-gutters">
+            <div class="col-md-2" style="display:flex; justify-content:center; align-items:center">
+            <img *ngIf="review_path_list" style="border-radius:50%"src="{{review_path_list[i]}}" class="card-img" width="80px" height="80px" alt="...">
+            </div>
+            <div class="col-md-10">
+            <div class="card-body ">
+                <h3 class="ca-1">A review created by {{obj.author}}</h3>
+                <div class="star" *ngIf="obj.author_details.rating">
+                    <span>
+                    <i class="fas fa-star"></i>  {{obj.author_details.rating}}
+                    </span>
+                </div>
+                <p class="ca"><small class="text-muted">Written by {{obj.author}} on {{create_date_list[i]}}</small></p>
+                <p class="ca-content">{{obj.content}}</p>
+                <a class="atag" href="{{obj.url}}" target="_blank"  >Read the rest</a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class = "row ">
+        <h2 *ngIf = "!mobile&&recommend_item" class = "headings">Recommend Movies</h2>
+        <h2 *ngIf = "mobile&&recommend_item" class = "headings-mobile">Recommend  Movies</h2>
+    </div>
+</div>
+
+<app-carousel *ngIf = "!mobile&&recommend_item" [obj_movie_list] = "obj_recommend_movie_list"></app-carousel>
+<app-mobilecarousel *ngIf="mobile&&recommend_item" [obj_movie_list] = "recommend_movie_results.results"></app-mobilecarousel>
+<div class = "container">
+    <div class = "row">
+        <h2 *ngIf = "!mobile&&similar_item" class = "headings">Similar Movies</h2>
+        <h2 *ngIf = "mobile&&similar_item" class = "headings-mobile">Similar Movies</h2>
+    </div>
+</div>
+<app-carousel *ngIf = "!mobile&&similar_item" [obj_movie_list] = "obj_similar_movie_list"></app-carousel>
+<app-mobilecarousel *ngIf="mobile&&similar_item" [obj_movie_list] = "similar_movie_results.results"></app-mobilecarousel>

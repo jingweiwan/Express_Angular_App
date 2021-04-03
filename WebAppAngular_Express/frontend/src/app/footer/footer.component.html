@@ -1,0 +1,15 @@
+<footer *ngIf="!on_mylist"class="footer">
+    <div class="container">
+        <span>Powered by TMDB. Developed by Jingwei Wan</span>
+    </div>
+</footer>
+<footer *ngIf="mobile && on_mylist"class="footer">
+    <div class="container">
+        <span>Powered by TMDB. Developed by Jingwei Wan</span>
+    </div>
+</footer>
+<footer *ngIf="!mobile&&on_mylist"class="footer_mylist">
+    <div class="container">
+        <span>Powered by TMDB. Developed by Jingwei Wan</span>
+    </div>
+</footer>

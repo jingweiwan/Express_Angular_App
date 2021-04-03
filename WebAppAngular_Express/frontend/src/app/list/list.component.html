@@ -1,0 +1,73 @@
+<div class="container" *ngIf="!mobile">
+    <div class = "row " *ngIf="has_item" >
+        <div class = "headings">
+            <h1>My Watchlist</h1>
+        </div>
+    </div>
+    <div class = "row justify-content-center " *ngIf="!has_item" >
+        <div class = "headings">
+            <h1>No items found in Watchlist.</h1>
+        </div>
+    </div>
+    <div class="row" *ngFor="let objs of watch_list_6">
+        <div class="col-2" *ngFor="let obj of objs">
+
+            <div class = "card"*ngIf = "obj">
+                <a *ngIf ="obj.title" href="/watch/movie/{{obj.id}}">
+                    <img *ngIf="obj.poster_path"class = "card-img" src="https://image.tmdb.org/t/p/original/{{obj.poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj.poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj.title}}</p>
+                    </div>
+                </a>
+            
+                <a *ngIf ="obj.name" href="/watch/tv/{{obj.id}}">
+                    <img *ngIf="obj.poster_path"class = "card-img" src="https://image.tmdb.org/t/p/original/{{obj.poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj.poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj.name}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="mobile">
+    <div class = "row " *ngIf="has_item" >
+
+        <div class = "headings col">
+            <h1>My Watchlist</h1>
+        </div>
+    </div>
+    <div class = "row justify-content-center " *ngIf="!has_item" >
+        <div class = "headings" >
+            <h1>No items found in Watchlist.</h1>
+        </div>
+    </div>
+    <div class="row" *ngFor="let objs of watch_list_6">
+        <div class="col-12" *ngFor="let obj of objs">
+
+            <div class = "card"*ngIf = "obj">
+                <a *ngIf ="obj.title" href="/watch/movie/{{obj.id}}">
+                    <img *ngIf="obj.poster_path"class = "card-img" src="https://image.tmdb.org/t/p/original/{{obj.poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj.poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj.title}}</p>
+                    </div>
+                </a>
+            
+                <a *ngIf ="obj.name" href="/watch/tv/{{obj.id}}">
+                    <img *ngIf="obj.poster_path"class = "card-img" src="https://image.tmdb.org/t/p/original/{{obj.poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj.poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj.name}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

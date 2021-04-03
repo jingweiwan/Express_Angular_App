@@ -1,0 +1,182 @@
+
+<div class="container">
+<ngb-carousel *ngIf="!mobile" >
+  <ng-template ngbSlide *ngFor ="let obj of obj_movie_list ">
+        <div class="picsum-img-wrapper" >
+            <div class="col-2">
+            <div class = "card"*ngIf = "obj[0]">
+            <a *ngIf ="obj[0].title" routerLink="/watch/movie/{{obj[0]?.id}}">
+            
+            
+            <img *ngIf="obj[0].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[0].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+            <img *ngIf="!obj[0].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+            <div class="carousel-caption">
+                <p >{{obj[0].title}}</p>
+            </div>
+            </a>
+            
+            
+            <a *ngIf ="obj[0].name" routerLink="/watch/tv/{{obj[0]?.id}}">
+            
+            
+            <img *ngIf="obj[0].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[0].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+            <img *ngIf="!obj[0].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+            <div class="carousel-caption">
+                <p >{{obj[0].name}}</p>
+            </div>
+            
+            </a>
+            </div>
+            </div>
+
+            <div class="col-2">
+            <div class = "card"*ngIf = "obj[1]">
+            <a *ngIf ="obj[1].title" routerLink="/watch/movie/{{obj[1]?.id}}">
+            
+            
+            <img *ngIf="obj[1].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[1].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+            <img *ngIf="!obj[1].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+            <div class="carousel-caption">
+                <p >{{obj[1].title}}</p>
+            </div>
+            </a>
+            
+
+            <a *ngIf ="obj[1].name" routerLink="/watch/tv/{{obj[1]?.id}}">
+            
+            
+            <img *ngIf="obj[1].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[1].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+            <img *ngIf="!obj[1].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+            <div class="carousel-caption">
+                <p >{{obj[1].name}}</p>
+            </div>
+            
+            </a>
+            </div>
+            </div>
+
+            <div class="col-2">
+            <div class = "card"*ngIf = "obj[2]">
+            <a *ngIf ="obj[2].title" routerLink="/watch/movie/{{obj[2]?.id}}">
+            
+            
+            <img *ngIf="obj[2].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[2].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+            <img *ngIf="!obj[2].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+            <div class="carousel-caption">
+                <p >{{obj[2].title}}</p>
+            </div>
+            </a>
+            
+            <a *ngIf ="obj[2].name" routerLink="/watch/tv/{{obj[2]?.id}}">
+            
+            
+            <img *ngIf="obj[2].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[2].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+            <img *ngIf="!obj[2].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+            <div class="carousel-caption">
+                <p >{{obj[2].name}}</p>
+            </div>
+            </a>
+            </div>
+            </div>
+
+            <div class="col-2">
+            <div class = "card"*ngIf = "obj[3]">
+                <a *ngIf ="obj[3].title" routerLink="/watch/movie/{{obj[3]?.id}}">
+                    <img *ngIf="obj[3].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[3].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj[3].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj[3].title}}</p>
+                    </div>
+                </a>
+            
+                <a *ngIf ="obj[3].name" routerLink="/watch/tv/{{obj[3]?.id}}">
+                    <img *ngIf="obj[3].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[3].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj[3].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj[3].name}}</p>
+                    </div>
+                </a>
+            </div>
+            </div>
+
+
+            <div class="col-2">
+            <div class = "card"*ngIf = "obj[4]">
+                <a *ngIf ="obj[4].title" routerLink="/watch/movie/{{obj[4]?.id}}">
+                    <img *ngIf="obj[4].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[4].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj[4].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj[4].title}}</p>
+                    </div>
+                </a>
+            
+                <a *ngIf ="obj[4].name" routerLink="/watch/tv/{{obj[4]?.id}}">
+                    <img *ngIf="obj[4].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[4].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj[4].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj[4].name}}</p>
+                    </div>
+                </a>
+            </div>
+            </div>
+
+
+            <div class="col-2">
+            <div class = "card"*ngIf = "obj[5]">
+                <a *ngIf ="obj[5].title" routerLink="/watch/movie/{{obj[5]?.id}}">
+                    <img *ngIf="obj[5].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[5].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj[5].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj[5].title}}</p>
+                    </div>
+                </a>
+            
+                <a *ngIf ="obj[5].name" routerLink="/watch/tv/{{obj[5]?.id}}">
+                    <img *ngIf="obj[5].poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj[5].poster_path}}" alt="Random second slide"width="200px" height = "200px">
+                    <img *ngIf="!obj[5].poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+                    <div class="carousel-caption">
+                        <p >{{obj[5].name}}</p>
+                    </div>
+                </a>
+            </div>
+            </div>
+        </div>
+  </ng-template>
+  
+
+  
+</ngb-carousel>
+</div>
+
+<ngb-carousel *ngIf="mobile" [showNavigationIndicators]="showNavigationIndicators">
+  <ng-template ngbSlide *ngFor ="let obj of obj_movie_list ">
+    
+        <div class="picsum-img-wrapper">
+            <a *ngIf="obj.title" routerLink="/watch/movie/{{obj.id}}">
+            <div class="col  justify-content-center">
+            <div class = "card"*ngIf = "obj" >
+            
+            <img *ngIf="obj.poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj.poster_path}}" alt="Random second slide"width="200px" height = "200px">
+            <img *ngIf="!obj.poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+            <div class="carousel-caption_m">
+                <p *ngIf="obj.title">{{obj.title}}</p>
+            </div>
+            </div>
+            </div>
+            </a>
+
+            <a *ngIf="obj.name" routerLink="/watch/tv/{{obj.id}}">
+            <div class="col d-flex justify-content-center">
+            <div class = "card"*ngIf = "obj" >
+            
+            <img *ngIf="obj.poster_path"class = "card-img" src="https://image.tmdb.org/t/p/w500/{{obj.poster_path}}" alt="Random second slide"width="200px" height = "200px">
+            <img *ngIf="!obj.poster_path"class = "card-img" src="https://cinemaone.net/images/movie_placeholder.png" alt="Random second slide"width="200px" height = "200px">
+            <div class="carousel-caption_m">
+                <p *ngIf="obj.name">{{obj.name}}</p>
+            </div>
+            </div>
+            </div>
+            </a>
+        </div>
+    </ng-template>
+<ngb-carousel>

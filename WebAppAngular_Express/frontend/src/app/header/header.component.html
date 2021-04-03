@@ -1,0 +1,63 @@
+
+<!--
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+    <a class="navbar-brand ml-2" href="">USC Films</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link " href="">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mylist">My List</a>
+        </li>
+      </ul>
+      
+      <form class="my-2 mr-2 my-lg-0 search_input">
+        <input class="mr-sm-1 search_input" type="text" placeholder="Search" aria-label="Search">
+      </form>
+    </div>
+
+</nav>
+-->
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+  <a class="navbar-brand ml-2" href="">USC Films</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse ml-2" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li *ngIf="on_home"class="nav-item active">
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li *ngIf="!on_home"class="nav-item">
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li *ngIf="on_mylist"class="nav-item active">
+          <a class="nav-link" routerLink="/mylist">My List</a>
+      </li>
+      <li *ngIf="!on_mylist"class="nav-item">
+          <a class="nav-link" routerLink="/mylist">My List</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 mr-2 my-lg-0 search_input">
+    
+      <input class=" mr-sm-1 search_input" (selectItem)="selectedItem($event)"
+      type="text" [(ngModel)]="modal" name="first"
+      [ngbTypeahead]="search"                     
+      [resultFormatter]="resultFormatValue"
+      [inputFormatter]="inputFormatValue"
+      [resultTemplate]="rt"
+      #instance="ngbTypeahead"      
+      placeholder="Search" aria-label="Search">
+    </form>
+    <ng-template #rt let-r="result" let-t="term" >
+      <img [src]="'https://image.tmdb.org/t/p/original/' + r['backdrop_path']" class="mr-1" style="width: 70px; margin-right:5px">
+      <ngb-highlight [result]="r.name || r.title" [term]="t"></ngb-highlight>
+    </ng-template>
+  </div>
+</nav>

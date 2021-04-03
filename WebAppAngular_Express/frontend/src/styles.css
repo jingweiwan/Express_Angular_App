@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #040930;
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.slide{
+    outline: none;
+}
+
+.dropdown-menu{
+    background-color: #010c1f;
+    border-color: white;
+}
+
+.dropdown-item{
+    color: white!important;
+}
+
+.overflow-auto{
+    overflow-y: hidden!important;
+}
+/*
+.carousel-control-prev{
+    left:-5% !important;
+    width: 4% !important;
+}
+.carousel-control-next{
+    right:-5% !important;
+    width: 4% !important;
+}
+*/
